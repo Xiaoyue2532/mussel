@@ -44,7 +44,7 @@ binutils_ver=2.44
 gcc_ver=14.2.0
 gmp_ver=6.3.0
 isl_ver=0.27
-linux_ver=6.12.21
+linux_ver=6.12.24
 mpc_ver=1.3.1
 mpfr_ver=4.2.2
 musl_ver=1.2.5
@@ -240,7 +240,6 @@ PCHDIR="$CURDIR/patches"
 
 MPREFIX="/cgnutools"
 MSYSROOT="/cgnutools"
-TVEND="pc"
 
 # ----- mussel Log File ---- #
 MLOG="$CURDIR/log.txt"
@@ -261,7 +260,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-arch=armv8-a --with-abi=lp64 --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419"
       XPURE64=$XARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     armv4 | armv4t)
       XARCH=armv4t
@@ -269,7 +268,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=armv4t --with-float=soft"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musleabi
+      XTARGET=$XARCH-unknown-linux-musleabi
       ;;
     armv5 | armv5te)
       XARCH=armv5te
@@ -277,7 +276,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=armv5te --with-float=soft"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musleabi
+      XTARGET=$XARCH-unknown-linux-musleabi
       ;;
     armv6)
       XARCH=armv6
@@ -285,7 +284,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$XARCH --with-fpu=vfp --with-float=hard"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musleabihf
+      XTARGET=$XARCH-unknown-linux-musleabihf
       ;;
     arm | armv6kz | armv6zk | bcm2835)
       XARCH=armv6kz
@@ -293,7 +292,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$XARCH --with-tune=arm1176jzf-s --with-abi=aapcs-linux --with-fpu=vfpv2 --with-float=hard"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musleabihf
+      XTARGET=$XARCH-unknown-linux-musleabihf
       ;;
     armv7 | armv7-a)
       XARCH=armv7-a
@@ -301,7 +300,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$XARCH --with-fpu=vfpv3 --with-float=hard"
       XPURE64=""
-      XTARGET=$LARCH-$TVEND-linux-musleabihf
+      XTARGET=$LARCH-unknown-linux-musleabihf
       ;;
     i486)
       XARCH=$1
@@ -309,7 +308,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$1 --with-tune=generic"
       XPURE64=""
-      XTARGET=$1-$TVEND-linux-musl
+      XTARGET=$1-pc-linux-musl
       ;;
     i586)
       XARCH=$1
@@ -317,7 +316,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$1 --with-tune=generic"
       XPURE64=""
-      XTARGET=$1-$TVEND-linux-musl
+      XTARGET=$1-pc-linux-musl
       ;;
     i386 | i686 | x86)
       XARCH=i686
@@ -325,7 +324,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$XARCH --with-tune=generic"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-pc-linux-musl
       ;;
     m68k | 68000 | motorola)
       XARCH=m68k
@@ -333,7 +332,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS=""
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mblaze | microblaze | microblazebe | microblazeeb)
       XARCH=microblaze
@@ -341,7 +340,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-endian=big"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     microblazeel | microblazele)
       XARCH=microblazeel
@@ -349,7 +348,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-endian=little"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mips | mips32 | mips32r2)
       XARCH=$1
@@ -357,7 +356,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}
       XGCCARGS="--with-endian=big --with-arch=mips32r2 --with-abi=32 --with-float=soft"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mipsel | mips32el | mips32r2el)
       XARCH=$1
@@ -365,7 +364,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}
       XGCCARGS="--with-endian=little --with-arch=mips32r2 --with-abi=32 --with-float=soft"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mips64 | mips64be | mips64eb | mips64r2)
       XARCH=mips64
@@ -373,7 +372,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-endian=big --with-arch=${XARCH}r2 --with-abi=64 --with-float=hard"
       XPURE64=$XARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     loongson | loongson3 | mips64el | mips64le | mips64elr2 | mips64r2el)
       XARCH=mips64el
@@ -381,7 +380,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}64
       XGCCARGS="--with-endian=little --with-arch=${MARCH}r2 --with-abi=64 --with-float=hard"
       XPURE64=$MARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mips64r6 | mipsisa64r6)
       XARCH=mipsisa64r6
@@ -389,7 +388,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}64
       XGCCARGS="--with-endian=big --with-arch=${MARCH}r6 --with-abi=64 --with-float=hard --with-nan=2008"
       XPURE64=$MARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     mips64r6el | mips64r6le | mipsisa64r6el)
       XARCH=mipsisa64r6el
@@ -397,7 +396,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}64
       XGCCARGS="--with-endian=little --with-arch=${MARCH}r6 --with-abi=64 --with-float=hard --with-nan=2008"
       XPURE64=$MARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     openrisc | or1k | or1ksim)
       XARCH=or1k
@@ -405,7 +404,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS=""
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     pmac32 | powerpc | ppc)
       XARCH=powerpc
@@ -413,7 +412,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-cpu=$XARCH --enable-secureplt --without-long-double-128"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     powerpcle | powerpcel | ppcle | ppcel)
       XARCH=powerpcle
@@ -421,7 +420,7 @@ while [ $# -gt 0 ]; do
       MARCH=powerpc
       XGCCARGS="--with-cpu=$LARCH --enable-secureplt --without-long-double-128 --with-endian=little"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     g5 | powerpc64 | powerpc64be | powerpc64eb | ppc64 | ppc64be | ppc64eb)
       XARCH=powerpc64
@@ -429,7 +428,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-cpu=$XARCH --with-abi=elfv2"
       XPURE64=$XARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     powernv | powerpc64le | ppc64le)
       XARCH=powerpc64le
@@ -437,7 +436,7 @@ while [ $# -gt 0 ]; do
       MARCH=${LARCH}64
       XGCCARGS="--with-cpu=$XARCH --enable-secureplt --without-long-double-128 --with-abi=elfv2"
       XPURE64=$MARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     riscv | riscv64 | rv64gc | sifive)
       XARCH=riscv64
@@ -445,7 +444,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-cpu=sifive-u74 --with-arch=rv64gc --with-tune=sifive-7-series --with-abi=lp64d"
       XPURE64=$XARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     s390 | s390x | z15 | z196)
       XARCH=s390x
@@ -453,7 +452,7 @@ while [ $# -gt 0 ]; do
       MARCH=$XARCH
       XGCCARGS="--with-arch=z196 --with-tune=z15 --with-long-double-128"
       XPURE64=$XARCH
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     sh2 | superh | sh2le | sh2el)
       XARCH=sh2
@@ -461,7 +460,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS=""
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     sh2-fdpic | superh-fdpic | sh2le-fdpic | sh2el-fdpic)
       XARCH=sh2-fdpic
@@ -469,7 +468,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS=""
       XPURE64="--enable-fdpic"
-      XTARGET=sh2-$TVEND-linux-muslfdpic
+      XTARGET=sh2-unknown-linux-muslfdpic
       ;;
     sh2be | sh2eb)
       XARCH=sh2eb
@@ -477,7 +476,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-endian=big"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     sh2be-fdpic | sh2eb-fdpic)
       XARCH=sh2eb-fdpic
@@ -485,7 +484,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--enable-fdpic --with-endian=big"
       XPURE64=""
-      XTARGET=sh2eb-$TVEND-linux-muslfdpic
+      XTARGET=sh2eb-unknown-linux-muslfdpic
       ;;
     sh4 | superh4 | sh4le | sh4el)
       XARCH=sh4
@@ -493,7 +492,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS=""
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-musl
+      XTARGET=$XARCH-unknown-linux-musl
       ;;
     sh4be-fdpic | sh4eb-fdpic)
       XARCH=sh4eb
@@ -501,7 +500,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-endian=big"
       XPURE64=""
-      XTARGET=$XARCH-$TVEND-linux-muslfdpic
+      XTARGET=$XARCH-unknown-linux-muslfdpic
       ;;
     amd64 | x86-64 | x86_64)
       XARCH=x86-64
@@ -509,7 +508,7 @@ while [ $# -gt 0 ]; do
       MARCH=$LARCH
       XGCCARGS="--with-arch=$XARCH --with-tune=generic"
       XPURE64=$XARCH
-      XTARGET=$LARCH-$TVEND-linux-musl
+      XTARGET=$LARCH-pc-linux-musl
       ;;
     c | -c | --clean)
       printf "${BLUEC}..${NORMALC} Cleaning mussel...\n"
