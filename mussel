@@ -883,7 +883,7 @@ printf "${BLUEC}..${NORMALC} Configuring cross-binutils...\n"
   --enable-relro \
   --enable-separate-code \
   --disable-default-execstack \
-  --enable-default-hash-style="sysv" \
+  --enable-default-hash-style="gnu" \
   --enable-initfini-array \
   --disable-werror \
   --disable-nls \
@@ -961,7 +961,7 @@ printf "${BLUEC}..${NORMALC} Configuring cross-gcc (compiler)...\n"
   --with-sysroot=/ \
   --with-pkgversion="mussel" \
   --with-pic \
-  --with-linker-hash-style="sysv" \
+  --with-linker-hash-style="gnu" \
   $XGCCARGS >> "$MLOG" 2>&1
 
 printf "${BLUEC}..${NORMALC} Building cross-gcc (compiler)...\n"
