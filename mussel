@@ -52,13 +52,13 @@ musl_ver=1.2.5
 pkgconf_ver=2.5.1
 
 # ----- Package URLs ----- #
-binutils_url=https://ftpmirror.gnu.org/binutils/binutils-$binutils_ver.tar.xz
-gcc_url=https://ftpmirror.gnu.org/gcc/gcc-$gcc_ver/gcc-$gcc_ver.tar.xz
-gmp_url=https://ftpmirror.gnu.org/gmp/gmp-$gmp_ver.tar.xz
+binutils_url=https://mirrors.ustc.edu.cn/gnu/binutils/binutils-$binutils_ver.tar.xz
+gcc_url=https://mirrors.ustc.edu.cn/gnu/gcc/gcc-$gcc_ver/gcc-$gcc_ver.tar.xz
+gmp_url=https://mirrors.ustc.edu.cn/gnu/gmp/gmp-$gmp_ver.tar.xz
 isl_url=https://libisl.sourceforge.io/isl-$isl_ver.tar.xz
-linux_url=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-$linux_ver.tar.xz
-mpc_url=https://ftpmirror.gnu.org/mpc/mpc-$mpc_ver.tar.gz
-mpfr_url=https://ftpmirror.gnu.org/mpfr/mpfr-$mpfr_ver.tar.xz
+linux_url=https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/v6.x/linux-$linux_ver.tar.xz
+mpc_url=https://mirrors.ustc.edu.cn/gnu/mpc/mpc-$mpc_ver.tar.gz
+mpfr_url=https://mirrors.ustc.edu.cn/gnu/mpfr/mpfr-$mpfr_ver.tar.xz
 musl_url=https://musl.libc.org/releases/musl-$musl_ver.tar.gz
 pkgconf_url=https://distfiles.ariadne.space/pkgconf/pkgconf-$pkgconf_ver.tar.xz
 
