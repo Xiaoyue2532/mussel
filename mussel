@@ -8,6 +8,7 @@
 # * Andrew Blue <andy@antareslinux.org>
 # * ayb <ayb@3hg.fr>
 # * Luiz Antônio Rangel at Pindorama (takusuman) <luiz.antonio.rangel@outlook.com.br>
+# * Hu Xiaoyue <huxiaoyue2022@gmail.com>
 
 set -e
 # trap at line 658
